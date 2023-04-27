@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="movie_button" type="id" />
+    <item name="tv_button" type="id" />
+    <item name="artists_button" type="id" />
+</resources>
