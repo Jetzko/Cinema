@@ -12,13 +12,13 @@
         android:theme="@style/Theme.CinemaApp"
         tools:targetApi="31">
         <activity
-            android:name=".TvShowActivity"
+            android:name=".presentation.tvshow.TvShowActivity"
             android:exported="false" />
         <activity
-            android:name=".MovieActivity"
+            android:name=".presentation.movie.MovieActivity"
             android:exported="false" />
         <activity
-            android:name=".ArtistActivity"
+            android:name=".presentation.artist.ArtistActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.HomeActivity"
