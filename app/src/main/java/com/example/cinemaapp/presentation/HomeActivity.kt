@@ -8,7 +8,7 @@ import com.example.cinemaapp.R
 import com.example.cinemaapp.databinding.HomeActivityBinding
 import com.example.cinemaapp.presentation.artist.ArtistActivity
 import com.example.cinemaapp.presentation.movie.MovieActivity
-import com.example.cinemaapp.presentation.tvshow.TvShowActivity
+import com.example.cinemaapp.presentation.tvShow.TvShowActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : HomeActivityBinding

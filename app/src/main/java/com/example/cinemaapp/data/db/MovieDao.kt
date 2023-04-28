@@ -19,5 +19,4 @@ interface MovieDao {
     //Get Movies
     @Query("SELECT * FROM popular_movies")
     suspend fun getMovies(): List<Movie>
-
 }

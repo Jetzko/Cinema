@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String","API_KEY","\"7f583afebb628ee5207d49a57ccc7353\""
+        buildConfigField "String","BASE_URL","\"https://api.themoviedb.org/3/\""
     }
 
     buildTypes {
@@ -56,6 +57,7 @@ dependencies {
     kapt("androidx.lifecycle:lifecycle-compiler:2.6.1")
     implementation("androidx.room:room-runtime:2.5.1")
     kapt("androidx.room:room-compiler:2.5.1")
+    implementation "androidx.room:room-ktx:2.5.1"
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-RC")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-RC")
