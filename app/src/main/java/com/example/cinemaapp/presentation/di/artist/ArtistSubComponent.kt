@@ -1,5 +1,6 @@
 package com.example.cinemaapp.presentation.di.artist
 
+
 import com.example.cinemaapp.presentation.artist.ArtistActivity
 import dagger.Subcomponent
 
@@ -10,6 +11,8 @@ interface ArtistSubComponent {
 
     @Subcomponent.Factory
     interface Factory{
-        fun create(): ArtistSubComponent
+        fun create():ArtistSubComponent
     }
+
 }
+

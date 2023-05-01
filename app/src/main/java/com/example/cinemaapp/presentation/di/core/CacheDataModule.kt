@@ -1,11 +1,11 @@
 package com.example.cinemaapp.presentation.di.core
 
-import com.example.cinemaapp.domain.repositories.artists.datasource.ArtistCacheDataSource
-import com.example.cinemaapp.domain.repositories.artists.datasourceimpl.ArtistsCacheDataSourceImpl
-import com.example.cinemaapp.domain.repositories.movies.datasource.MovieCacheDataSource
-import com.example.cinemaapp.domain.repositories.movies.datasourceimpl.MovieCacheDataSourceImpl
-import com.example.cinemaapp.domain.repositories.tvshows.datasource.TvCacheDataSource
-import com.example.cinemaapp.domain.repositories.tvshows.datasourceimpl.TvCacheDataSourceImpl
+import com.example.cinemaapp.data.repository.artist.datasource.ArtistCacheDataSource
+import com.example.cinemaapp.data.repository.artist.datasourceImpl.ArtistCacheDataSourceImpl
+import com.example.cinemaapp.data.repository.movie.datasource.MovieCacheDataSource
+import com.example.cinemaapp.data.repository.movie.datasourceImpl.MovieCacheDataSourceImpl
+import com.example.cinemaapp.data.repository.tvshow.datasource.TvShowCacheDataSource
+import com.example.cinemaapp.data.repository.tvshow.datasourceImpl.TvShowCacheDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,17 +14,21 @@ import javax.inject.Singleton
 class CacheDataModule {
     @Singleton
     @Provides
-    fun provideMovieCacheDataSource(): MovieCacheDataSource{
+    fun provideMovieCacheDataSource(): MovieCacheDataSource {
         return MovieCacheDataSourceImpl()
     }
+
     @Singleton
     @Provides
-    fun provideTvShowCacheDataSource(): TvCacheDataSource{
-        return TvCacheDataSourceImpl()
+    fun provideTvShowCacheDataSource(): TvShowCacheDataSource {
+        return TvShowCacheDataSourceImpl()
     }
+
     @Singleton
     @Provides
-    fun provideArtistCacheDataSource(): ArtistCacheDataSource{
-        return ArtistsCacheDataSourceImpl()
+    fun provideArtistCacheDataSource(): ArtistCacheDataSource {
+        return ArtistCacheDataSourceImpl()
     }
+
+
 }

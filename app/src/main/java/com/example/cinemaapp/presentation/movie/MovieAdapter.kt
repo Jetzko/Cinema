@@ -9,12 +9,13 @@ import com.example.cinemaapp.R
 import com.example.cinemaapp.data.model.movie.Movie
 import com.example.cinemaapp.databinding.ListItemBinding
 
-class MovieAdapter(): RecyclerView.Adapter<MyViewHolder>() {
+
+class MovieAdapter():RecyclerView.Adapter<MyViewHolder>() {
     private val movieList = ArrayList<Movie>()
 
     fun setList(movies:List<Movie>){
-        movieList.clear()
-        movieList.addAll(movies)
+         movieList.clear()
+         movieList.addAll(movies)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,16 +34,16 @@ class MovieAdapter(): RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(movieList[position])
+       holder.bind(movieList[position])
     }
 }
 
 
 
 class MyViewHolder(val binding: ListItemBinding):
-    RecyclerView.ViewHolder(binding.root){
+RecyclerView.ViewHolder(binding.root){
 
-    fun bind(movie:Movie){
+   fun bind(movie:Movie){
         binding.titleTextView.text = movie.title
         binding.descriptionTextView.text = movie.overview
         val posterURL = "https://image.tmdb.org/t/p/w500"+movie.posterPath
@@ -50,6 +51,6 @@ class MyViewHolder(val binding: ListItemBinding):
             .load(posterURL)
             .into(binding.imageView)
 
-    }
+   }
 
 }

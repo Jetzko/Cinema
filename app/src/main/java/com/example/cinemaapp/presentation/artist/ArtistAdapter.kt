@@ -1,5 +1,6 @@
 package com.example.cinemaapp.presentation.artist
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -9,12 +10,13 @@ import com.example.cinemaapp.R
 import com.example.cinemaapp.data.model.artist.Artist
 import com.example.cinemaapp.databinding.ListItemBinding
 
-class ArtistAdapter(): RecyclerView.Adapter<MyViewHolder>() {
+
+class ArtistAdapter():RecyclerView.Adapter<MyViewHolder>() {
     private val artistList = ArrayList<Artist>()
 
     fun setList(artists:List<Artist>){
-        artistList.clear()
-        artistList.addAll(artists)
+         artistList.clear()
+         artistList.addAll(artists)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,16 +35,16 @@ class ArtistAdapter(): RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(artistList[position])
+       holder.bind(artistList[position])
     }
 }
 
 
 
 class MyViewHolder(val binding: ListItemBinding):
-    RecyclerView.ViewHolder(binding.root){
+RecyclerView.ViewHolder(binding.root){
 
-    fun bind(artist:Artist){
+   fun bind(artist:Artist){
         binding.titleTextView.text = artist.name
         binding.descriptionTextView.text = artist.popularity.toString()
         val posterURL = "https://image.tmdb.org/t/p/w500"+artist.profilePath
@@ -50,6 +52,6 @@ class MyViewHolder(val binding: ListItemBinding):
             .load(posterURL)
             .into(binding.imageView)
 
-    }
+   }
 
 }

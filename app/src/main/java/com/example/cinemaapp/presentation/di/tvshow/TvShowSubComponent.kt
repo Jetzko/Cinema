@@ -1,7 +1,6 @@
 package com.example.cinemaapp.presentation.di.tvshow
 
-
-import com.example.cinemaapp.presentation.tvShow.TvShowActivity
+import com.example.cinemaapp.presentation.tv.TvShowActivity
 import dagger.Subcomponent
 
 @TvShowScope
@@ -11,6 +10,8 @@ interface TvShowSubComponent {
 
     @Subcomponent.Factory
     interface Factory{
-        fun create(): TvShowSubComponent
+        fun create():TvShowSubComponent
     }
+
 }
+

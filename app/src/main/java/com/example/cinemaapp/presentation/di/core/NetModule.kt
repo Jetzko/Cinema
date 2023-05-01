@@ -1,5 +1,6 @@
 package com.example.cinemaapp.presentation.di.core
 
+
 import com.example.cinemaapp.data.api.TMDBService
 import dagger.Module
 import dagger.Provides
@@ -8,18 +9,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetModule(private val baseURL: String) {
+class NetModule(private val baseUrl: String) {
+
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(baseURL)
+            .baseUrl(baseUrl)
             .build()
     }
+
     @Singleton
     @Provides
-    fun provideTMDBService(retrofit: Retrofit): TMDBService{
+    fun provideTMDBService(retrofit: Retrofit): TMDBService {
         return retrofit.create(TMDBService::class.java)
     }
+
 }

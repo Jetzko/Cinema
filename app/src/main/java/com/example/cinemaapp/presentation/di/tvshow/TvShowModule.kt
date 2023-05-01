@@ -1,12 +1,10 @@
 package com.example.cinemaapp.presentation.di.tvshow
 
-import com.example.cinemaapp.domain.usecases.GetArtistsUseCase
-import com.example.cinemaapp.domain.usecases.GetTvShowsUseCase
-import com.example.cinemaapp.domain.usecases.UpdateArtistsUseCase
-import com.example.cinemaapp.domain.usecases.UpdateTvShowUseCase
-import com.example.cinemaapp.presentation.artist.ArtistViewModelFactory
-import com.example.cinemaapp.presentation.tvShow.TvShowViewModel
-import com.example.cinemaapp.presentation.tvShow.TvShowViewModelFactory
+
+
+import com.example.cinemaapp.domain.usecase.GetTvShowsUseCase
+import com.example.cinemaapp.domain.usecase.UpdateTvShowsUseCase
+import com.example.cinemaapp.presentation.tv.TvShowViewModelFactory
 import dagger.Module
 import dagger.Provides
 
@@ -16,10 +14,12 @@ class TvShowModule {
     @Provides
     fun provideTvShowViewModelFactory(
         getTvShowsUseCase: GetTvShowsUseCase,
-        updateTvShowUseCase: UpdateTvShowUseCase
+        updateTvShowsUseCase: UpdateTvShowsUseCase
     ): TvShowViewModelFactory {
         return TvShowViewModelFactory(
-            getTvShowsUseCase, updateTvShowUseCase
+            getTvShowsUseCase,
+            updateTvShowsUseCase
         )
     }
+
 }

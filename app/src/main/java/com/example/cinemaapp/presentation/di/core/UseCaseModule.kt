@@ -1,9 +1,10 @@
 package com.example.cinemaapp.presentation.di.core
 
-import com.example.cinemaapp.domain.repositories.artists.ArtistsRepository
-import com.example.cinemaapp.domain.repositories.movies.MovieRepository
-import com.example.cinemaapp.domain.repositories.tvshows.TvShowRepository
-import com.example.cinemaapp.domain.usecases.*
+
+import com.example.cinemaapp.domain.repository.ArtistRepository
+import com.example.cinemaapp.domain.repository.MovieRepository
+import com.example.cinemaapp.domain.repository.TvShowRepository
+import com.example.cinemaapp.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 
@@ -11,29 +12,30 @@ import dagger.Provides
 class UseCaseModule {
 
     @Provides
-    fun provideGetMoviesUseCase(movieRepository: MovieRepository):GetMoviesUseCase{
+    fun provideGetMovieUseCase(movieRepository: MovieRepository): GetMoviesUseCase {
         return GetMoviesUseCase(movieRepository)
     }
     @Provides
-    fun provideUpdateMoviesUseCase(movieRepository: MovieRepository): UpdateMoviesUseCase{
-        return UpdateMoviesUseCase(movieRepository)
+    fun provideUpdateMovieUseCase(movieRepository: MovieRepository): UpdateMoviesUsecase {
+        return UpdateMoviesUsecase(movieRepository)
     }
 
     @Provides
-    fun provideGetTvShowsUseCase(tvShowRepository: TvShowRepository):GetTvShowsUseCase{
+    fun provideGetTvShowUseCase(tvShowRepository: TvShowRepository): GetTvShowsUseCase {
         return GetTvShowsUseCase(tvShowRepository)
     }
     @Provides
-    fun provideUpdateTvShowsUseCase(tvShowRepository: TvShowRepository): UpdateTvShowUseCase{
-        return UpdateTvShowUseCase(tvShowRepository)
+    fun provideUpdateTvShowUseCase(tvShowRepository: TvShowRepository): UpdateTvShowsUseCase {
+        return UpdateTvShowsUseCase(tvShowRepository)
     }
 
     @Provides
-    fun provideGetArtistsUseCase(artistsRepository: ArtistsRepository):GetArtistsUseCase{
-        return GetArtistsUseCase(artistsRepository)
+    fun provideGetArtistUseCase(artistRepository: ArtistRepository): GetArtistsUseCase {
+        return GetArtistsUseCase(artistRepository)
     }
     @Provides
-    fun provideUpdateArtistsUseCase(artistsRepository: ArtistsRepository): UpdateArtistsUseCase{
-        return UpdateArtistsUseCase(artistsRepository)
+    fun provideUpdateArtistUseCase(artistRepository: ArtistRepository):UpdateArtistsUseCase{
+        return UpdateArtistsUseCase(artistRepository)
     }
+
 }

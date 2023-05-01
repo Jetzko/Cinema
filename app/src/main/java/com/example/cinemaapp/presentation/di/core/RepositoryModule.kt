@@ -1,63 +1,77 @@
 package com.example.cinemaapp.presentation.di.core
 
-import com.example.cinemaapp.domain.repositories.artists.ArtistsRepository
-import com.example.cinemaapp.domain.repositories.artists.datasource.ArtistCacheDataSource
-import com.example.cinemaapp.domain.repositories.artists.datasource.ArtistLocalDataSource
-import com.example.cinemaapp.domain.repositories.artists.datasource.ArtistRemoteDataSource
-import com.example.cinemaapp.domain.repositories.artists.datasourceimpl.ArtistsRepositoryImpl
-import com.example.cinemaapp.domain.repositories.movies.MovieRepository
-import com.example.cinemaapp.domain.repositories.movies.datasource.MovieCacheDataSource
-import com.example.cinemaapp.domain.repositories.movies.datasource.MovieLocalDataSource
-import com.example.cinemaapp.domain.repositories.movies.datasource.MovieRemoteDataSource
-import com.example.cinemaapp.domain.repositories.movies.datasourceimpl.MovieRepositoryImpl
-import com.example.cinemaapp.domain.repositories.tvshows.TvShowRepository
-import com.example.cinemaapp.domain.repositories.tvshows.datasource.TvCacheDataSource
-import com.example.cinemaapp.domain.repositories.tvshows.datasource.TvLocaleDataSource
-import com.example.cinemaapp.domain.repositories.tvshows.datasource.TvRemoteDataSource
-import com.example.cinemaapp.domain.repositories.tvshows.datasourceimpl.TvShowRepositoryImpl
+
+import com.example.cinemaapp.data.repository.artist.ArtistRepositoryImpl
+import com.example.cinemaapp.data.repository.artist.datasource.ArtistCacheDataSource
+import com.example.cinemaapp.data.repository.artist.datasource.ArtistLocalDataSource
+import com.example.cinemaapp.data.repository.artist.datasource.ArtistRemoteDatasource
+import com.example.cinemaapp.data.repository.movie.MovieRepositoryImpl
+import com.example.cinemaapp.data.repository.movie.datasource.MovieCacheDataSource
+import com.example.cinemaapp.data.repository.movie.datasource.MovieLocalDataSource
+import com.example.cinemaapp.data.repository.movie.datasource.MovieRemoteDatasource
+import com.example.cinemaapp.data.repository.tvshow.TvShowRepositoryImpl
+import com.example.cinemaapp.data.repository.tvshow.datasource.TvShowCacheDataSource
+import com.example.cinemaapp.data.repository.tvshow.datasource.TvShowLocalDataSource
+import com.example.cinemaapp.data.repository.tvshow.datasource.TvShowRemoteDatasource
+import com.example.cinemaapp.domain.repository.ArtistRepository
+import com.example.cinemaapp.domain.repository.MovieRepository
+import com.example.cinemaapp.domain.repository.TvShowRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 @Module
 class RepositoryModule {
-    @Singleton
+
     @Provides
+    @Singleton
     fun provideMovieRepository(
-        movieRemoteDataSource: MovieRemoteDataSource,
+        movieRemoteDatasource: MovieRemoteDatasource,
         movieLocalDataSource: MovieLocalDataSource,
         movieCacheDataSource: MovieCacheDataSource
     ): MovieRepository {
+
         return MovieRepositoryImpl(
-            movieRemoteDataSource,
+            movieRemoteDatasource,
             movieLocalDataSource,
             movieCacheDataSource
         )
+
+
     }
-    @Singleton
+
     @Provides
+    @Singleton
     fun provideTvShowRepository(
-        tvRemoteDataSource: TvRemoteDataSource,
-        tvLocaleDataSource: TvLocaleDataSource,
-        tvCacheDataSource: TvCacheDataSource
+        tvShowRemoteDatasource: TvShowRemoteDatasource,
+        tvShowLocalDataSource: TvShowLocalDataSource,
+        tvShowCacheDataSource: TvShowCacheDataSource
     ): TvShowRepository {
+
         return TvShowRepositoryImpl(
-            tvRemoteDataSource,
-            tvLocaleDataSource,
-            tvCacheDataSource
+            tvShowRemoteDatasource,
+            tvShowLocalDataSource,
+            tvShowCacheDataSource
         )
+
+
     }
-    @Singleton
+
     @Provides
+    @Singleton
     fun provideArtistRepository(
-        artistRemoteDataSource: ArtistRemoteDataSource,
+        artistRemoteDatasource: ArtistRemoteDatasource,
         artistLocalDataSource: ArtistLocalDataSource,
         artistCacheDataSource: ArtistCacheDataSource
-    ): ArtistsRepository {
-        return ArtistsRepositoryImpl(
-            artistRemoteDataSource,
+    ): ArtistRepository {
+
+        return ArtistRepositoryImpl(
+            artistRemoteDatasource,
             artistLocalDataSource,
             artistCacheDataSource
         )
+
+
     }
+
 }

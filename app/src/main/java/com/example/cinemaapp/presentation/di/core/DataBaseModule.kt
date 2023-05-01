@@ -2,10 +2,11 @@ package com.example.cinemaapp.presentation.di.core
 
 import android.content.Context
 import androidx.room.Room
-import com.example.cinemaapp.data.db.ArtistsDao
+
+import com.example.cinemaapp.data.db.ArtistDao
 import com.example.cinemaapp.data.db.MovieDao
 import com.example.cinemaapp.data.db.TMDBDatabase
-import com.example.cinemaapp.data.db.TvShowsDao
+import com.example.cinemaapp.data.db.TvShowDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -15,22 +16,29 @@ class DataBaseModule {
     @Singleton
     @Provides
     fun provideMovieDataBase(context: Context): TMDBDatabase {
-        return Room.databaseBuilder(context, TMDBDatabase::class.java, "tmdbClient")
-            .build()
+     return Room.databaseBuilder(context,TMDBDatabase::class.java,"tmdbclient")
+         .build()
     }
     @Singleton
     @Provides
-    fun provideMovieDao(tmdbDatabase: TMDBDatabase): MovieDao{
+    fun provideMovieDao(tmdbDatabase: TMDBDatabase): MovieDao {
         return tmdbDatabase.movieDao()
     }
+
     @Singleton
     @Provides
-    fun provideTvShowDao(tmdbDatabase: TMDBDatabase): TvShowsDao{
+    fun provideTvDao(tmdbDatabase: TMDBDatabase): TvShowDao {
         return tmdbDatabase.tvDao()
     }
+
     @Singleton
     @Provides
-    fun provideArtistDao(tmdbDatabase: TMDBDatabase): ArtistsDao{
+    fun provideArtistDao(tmdbDatabase: TMDBDatabase): ArtistDao {
         return tmdbDatabase.artistDao()
     }
+
+
+
+
+
 }
